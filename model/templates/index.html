@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+<head>
+  <title>Model Sample</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+form {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: calc(100% - 22px); 
+  height: 40px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+select {
+  appearance: none;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+input[type="text"], input[type="number"], select {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px;
+  width: calc(100% - 22px);
+}
+
+input[type="text"]:focus, input[type="number"]:focus, select:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 3px #4CAF50;
+}
+
+input[type="text"]:required, input[type="number"]:required, select:required {
+  border-color: #f00;
+  box-shadow: 0 0 3px #f00;
+}
+
+input[type="text"]:invalid, input[type="number"]:invalid, select:invalid {
+  border-color: #f00;
+  box-shadow: 0 0 3px #f00;
+}
+
+input[type="text"]:valid, input[type="number"]:valid, select:valid {
+  border-color: #4CAF50;
+  box-shadow: 0 0 3px #4CAF50;
+}
+
+  </style>
+</head>
+<body>
+  <h2>Transaction Details</h2>
+  <form action="/predict" method="post" onsubmit="disableSubmitButton()">
+    <div class="form-group">
+      <label for="Customer Account">Customer Account:</label>
+      <input type="text" id="Customer Account" name="Customer Account" required>
+    </div>
+    <div class="form-group">
+      <label for="Customer Bank">Customer Bank:</label>
+      <input type="number" id="Customer Bank" name="Customer Bank" required>
+    </div>
+    <div class="form-group">
+      <label for="Amount of Transfer">Amount of Transfer:</label>
+      <input type="number" step=".01" id="Amount of Transfer" name="Amount of Transfer" required>
+    </div>
+    <div class="form-group">
+      <label for="Transaction Type">Transaction Type:</label>
+      <select id="Transaction Type" name="Transaction Type" required>
+        <option value="">Select Format</option>
+        <option value="Credit Card">Credit Card</option>
+        <option value="ACH">ACH</option>
+        <option value="Reinvestment">Reinvestment</option>
+        <option value="Wire">Wire</option>
+        <option value="Bitcoin">Bitcoin</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="Receivers Account">Receivers Account</label>
+      <input type="text" id="Receivers Account" name="Receivers Account" required>
+    </div>
+    <div class="form-group">
+      <label for="Receivers Bank">Receivers Bank</label>
+      <input type="number" id="Receivers Bank" name="Receivers Bank" required>
+    </div>
+    <div class="form-group">
+      <label for="Source country">Source country</label>
+      <select id="Source country" name="Source country" required>
+        <option value="">Select Format</option>
+        <option value="USA">USA</option>
+        <option value="UK">UK</option>
+        <option value="India">India</option>
+        <option value="Canada">Canada</option>
+        <option value="UAE">UAE</option>
+        <option value="Switzerland">Switzerland</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="Receiving country">Receiving country</label>
+      <select id="Receiving country" name="Receiving country" required>
+        <option value="">Select Format</option>
+        <option value="USA">USA</option>
+        <option value="UK">UK</option>
+        <option value="India">India</option>
+        <option value="Canada">Canada</option>
+        <option value="UAE">UAE</option>
+        <option value="Switzerland">Switzerland</option>
+      </select>
+    </div>
+
+    <input type="submit" id="submit-button" value="Submit">
+  </form>
+
+  <script>
+    function disableSubmitButton() {
+      document.getElementById('submit-button').disabled = true;
+      return true;
+    }
+  </script>
+</body>
+</html>
